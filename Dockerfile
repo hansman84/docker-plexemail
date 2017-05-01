@@ -2,7 +2,7 @@ FROM nginx
 
 
 # Use bash instead of sh
-#RUN rm -rf /bin/sh && ln -s /bin/bash /bin/sh
+RUN rm -rf /bin/sh && ln -s /bin/bash /bin/sh
 
 # Install dependencies
 RUN apt-get -q update && \
