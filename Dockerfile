@@ -6,7 +6,7 @@ RUN rm -rf /bin/sh && ln -s /bin/bash /bin/sh
 
 # Install dependencies
 RUN apt-get -q update && \
-    apt-get install -qy --force-yes cron python-pip build-essential python-dev libffi-dev libssl-dev git
+    apt-get install -qy --force-yes cron python-pip build-essential python-dev libffi-dev libssl-dev git nano
 RUN pip install requests
 
 # Clone PlexEmail
