@@ -11,6 +11,7 @@ RUN pip install requests
 
 # Clone PlexEmail
 RUN git clone https://github.com/jakewaldron/PlexEmail.git /PlexEmail
+RUN sed s/'Plug-in Support'/'Plug-in\ Support'/g /PlexEmail/scripts/plexEmail.py 
 
 # Cleanup
 RUN apt-get autoremove &&\
