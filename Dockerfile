@@ -1,13 +1,13 @@
 FROM nginx
 
-MAINTAINER blackbarn@gmail.com
 
 # Use bash instead of sh
-RUN rm -rf /bin/sh && ln -s /bin/bash /bin/sh
+#RUN rm -rf /bin/sh && ln -s /bin/bash /bin/sh
 
 # Install dependencies
 RUN apt-get -q update && \
     apt-get install -qy --force-yes cron python-pip build-essential python-dev libffi-dev libssl-dev git
+RUN pip install requests
 
 # Clone PlexEmail
 RUN git clone https://github.com/jakewaldron/PlexEmail.git /PlexEmail
@@ -20,6 +20,7 @@ RUN apt-get autoremove &&\
 
 # Define the config volume
 VOLUME ["/config"]
+VOLUME ["/plex"]
 
 # Add the nginx default.conf
 ADD default.conf /etc/nginx/conf.d/default.conf
